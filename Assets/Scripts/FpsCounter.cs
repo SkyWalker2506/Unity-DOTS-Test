@@ -1,11 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class FpsCounter : MonoBehaviour
 {
-    public TMP_Text Text;
+    [SerializeField] TMP_Text _text;
  
     private Dictionary<int, string> CachedNumberStrings = new();
     private int[] _frameRateSamples;
@@ -16,7 +15,7 @@ public class FpsCounter : MonoBehaviour
  
     void Awake()
     {
-        // Cache strings and create array
+        Application.targetFrameRate = 500;
         {
             for (int i = 0; i < _cacheNumbersAmount; i++) {
                 CachedNumberStrings[i] = i.ToString();
@@ -26,13 +25,11 @@ public class FpsCounter : MonoBehaviour
     }
     void Update()
     {
-        // Sample
         {
-            var currentFrame = (int)Mathf.Round(1f / Time.smoothDeltaTime); // If your game modifies Time.timeScale, use unscaledDeltaTime and smooth manually (or not).
+            var currentFrame = (int)Mathf.Round(1f / Time.smoothDeltaTime); 
             _frameRateSamples[_averageCounter] = currentFrame;
         }
  
-        // Average
         {
             var average = 0f;
  
@@ -46,7 +43,7 @@ public class FpsCounter : MonoBehaviour
  
         // Assign to UI
         {
-            Text.SetText(_currentAveraged < _cacheNumbersAmount && _currentAveraged > 0
+            _text.SetText(_currentAveraged < _cacheNumbersAmount && _currentAveraged > 0
                 ? CachedNumberStrings[_currentAveraged]
                 : _currentAveraged < 0
                     ? "< 0"

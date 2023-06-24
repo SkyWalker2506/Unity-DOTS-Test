@@ -4,5 +4,4 @@ public struct SpawnerData : IComponentData
 {
     public Entity Prefab;
     public int SpawnCount;
-    
 }

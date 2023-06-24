@@ -12,7 +12,7 @@ public class Spawner : MonoBehaviour
     {
         for (int i = 0; i < numSheep; i++)
         {
-            Vector3 pos = new Vector3(Random.Range(-50, 50), 0, Random.Range(-50, 50));
+            Vector3 pos = new Vector3(Random.Range(-30, 30), 0, Random.Range(-50, 50));
             Instantiate(sheepPrefab, pos, Quaternion.identity);
         }
     }

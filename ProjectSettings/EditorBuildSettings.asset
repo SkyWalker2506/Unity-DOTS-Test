@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/ECSSheep.unity
+    path: Assets/ECSSheep/ECSSheep.unity
     guid: 2339faf31ade44c9ab9fcba7baff73e3
   - enabled: 1
     path: Assets/ECSSheep/ECSSheepSubScene.unity

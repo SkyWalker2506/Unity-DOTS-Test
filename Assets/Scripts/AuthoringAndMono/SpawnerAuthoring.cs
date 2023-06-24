@@ -11,8 +11,11 @@ public class SpawnerBaker : Baker<SpawnerAuthoring>
 {
     public override void Bake(SpawnerAuthoring authoring)
     {
-
         Entity entity = GetEntity(TransformUsageFlags.None);
+        if (!authoring.Prefab.GetComponent<EntityParentTagAuthoring>())
+        {
+            authoring.Prefab.AddComponent<EntityParentTagAuthoring>();
+        }
         AddComponent(entity,new SpawnerData
         {
             Prefab = GetEntity(authoring.Prefab, TransformUsageFlags.Dynamic),
@@ -20,5 +23,3 @@ public class SpawnerBaker : Baker<SpawnerAuthoring>
         });
     }
 }
-
-

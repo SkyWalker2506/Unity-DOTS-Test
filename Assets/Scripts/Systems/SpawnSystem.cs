@@ -8,7 +8,6 @@ public partial struct SpawnSystem : ISystem
 {
     private bool initialized;
     private Random Random;
-    public void OnDestroy(ref SystemState state) { }
 
     public void OnUpdate(ref SystemState state)
     {
@@ -33,4 +32,5 @@ public partial struct SpawnSystem : ISystem
             state.EntityManager.SetComponentData(entity, LocalTransform.FromPosition(pos));
         }
     }
+    
 }
