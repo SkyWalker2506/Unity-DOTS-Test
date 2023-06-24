@@ -4,11 +4,11 @@ using UnityEngine;
 public class SpawnerAuthoring : MonoBehaviour
 {
     public GameObject Prefab;
-    public int SpawnCount = 15000;
 }
 
 public class SpawnerBaker : Baker<SpawnerAuthoring>
 {
+    private SpawnerData _spawnerData;
     public override void Bake(SpawnerAuthoring authoring)
     {
         Entity entity = GetEntity(TransformUsageFlags.None);
@@ -16,10 +16,14 @@ public class SpawnerBaker : Baker<SpawnerAuthoring>
         {
             authoring.Prefab.AddComponent<EntityParentTagAuthoring>();
         }
-        AddComponent(entity,new SpawnerData
+
+        _spawnerData = new SpawnerData
         {
             Prefab = GetEntity(authoring.Prefab, TransformUsageFlags.Dynamic),
-            SpawnCount = authoring.SpawnCount
-        });
+            MaxSpawnCount = 2500000
+        };
+        
+        AddComponent(entity, _spawnerData);
     }
+
 }

@@ -6,7 +6,7 @@ using Unity.Transforms;
 
 public partial class EntityCounterSystem : SystemBase
 {
-    private int _currentCount = -1;
+    public int CurrentCount;
     public Action<int> OnEntityCountChanged;
     public EntityQuery _entityQuery; 
     public EntityManager _entityManager;
@@ -26,10 +26,10 @@ public partial class EntityCounterSystem : SystemBase
     private void UpdateCount()
     {
         _entities= _entityQuery.ToEntityArray(Allocator.TempJob);
-        if (_currentCount != _entities.Length)
+        if (CurrentCount != _entities.Length)
         {
-            _currentCount = _entities.Length;
-            OnEntityCountChanged?.Invoke(_currentCount);
+            CurrentCount = _entities.Length;
+            OnEntityCountChanged?.Invoke(CurrentCount);
         }
     }
 }

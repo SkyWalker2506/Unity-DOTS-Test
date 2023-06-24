@@ -4,6 +4,7 @@ using UnityEngine;
 public class EntityParentTagAuthoring : MonoBehaviour
 {
 }
+
 public class EntityParentTagBaker : Baker<EntityParentTagAuthoring>
 {
     public override void Bake(EntityParentTagAuthoring authoring)

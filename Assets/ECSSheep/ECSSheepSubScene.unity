@@ -168,4 +168,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Prefab: {fileID: 2026991542, guid: ed57f85e128444af2aecca62ff336fea, type: 3}
-  SpawnCount: 15000
+  SpawnerUI: {fileID: 0}

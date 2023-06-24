@@ -25,7 +25,7 @@ public partial struct MovementSystem : ISystem
     
     private void ProcessMovement(ref SystemState state, RefRO<SpawnerData> spawner)
     {
-        for (int i = 0; i < spawner.ValueRO.SpawnCount; i++)
+        for (int i = 0; i < spawner.ValueRO.MaxSpawnCount; i++)
         {
             float3 pos = Random.NextFloat3(new float3(-50, 0, -50), new float3(50, 0, 50));
             //state.EntityManager.SetComponentData(entity, LocalTransform.FromPosition(pos));
